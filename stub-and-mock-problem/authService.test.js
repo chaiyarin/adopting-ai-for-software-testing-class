@@ -3,10 +3,15 @@ const { NotificationService, handleUserLogin } = require("./authService");
 
 describe("handleUserLogin with Mock", () => {
     it("should call sendNotification exactly once", () => {
-        // Arrange Create a mock instance of NotificationService
+        // Create a mock instance of NotificationService
+        const notificationServiceMock = new NotificationService();
+        notificationServiceMock.sendNotification = jest.fn(); // Mock the function
 
-        // Action Call function that should trigger sendNotification
+        // Call function that should trigger sendNotification
+        handleUserLogin(notificationServiceMock);
 
         // Verify the mock was called once
+        expect(notificationServiceMock.sendNotification).toHaveBeenCalledTimes(1);
+        expect(notificationServiceMock.sendNotification).toHaveBeenCalledWith("User logged in");
     });
 });
