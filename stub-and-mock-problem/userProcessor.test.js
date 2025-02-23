@@ -1,13 +1,19 @@
+// userProcessor.test.js
 const { UserService, getUserGreeting } = require("./userProcessor");
 
 describe("UserProcessor with Stub", () => {
 
     it("should return a greeting message using stubbed user data", () => {
-        // Arrange Create a stub for getUser method
+        // Create a stub for getUser method
+        const userServiceStub = new UserService();
+        userServiceStub.getUser = jest.fn().mockReturnValue({ id: 1, name: "Alice" });
 
-        // Action Call function with stubbed data
+        // Call function with stubbed data
+        const greeting = getUserGreeting(userServiceStub);
 
-        // Assert
+        // Assertions
+        expect(greeting).toBe("Hello, Alice!");
+        expect(userServiceStub.getUser).toHaveBeenCalledTimes(1);
     });
 
 });
