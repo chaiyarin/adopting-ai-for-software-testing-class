@@ -31,4 +31,10 @@ public class EmployeeService : IEmployeeService
         _employees.Remove(employee);
         return true;
     }
+
+    public Employees GetEmployeeById(int id)
+    {
+        var employee = _employees.FirstOrDefault(e => e.Id == id);
+        return null;
+    }
 }

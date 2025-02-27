@@ -24,7 +24,7 @@ public class EmployeeController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<Employees> GetEmployeeById(int id)
     {
-        var employee = _employees.FirstOrDefault(e => e.Id == id);
+        var employee = _employeeService.GetEmployeeById(id);
         if (employee == null) return NotFound();
         return Ok(employee);
     }
