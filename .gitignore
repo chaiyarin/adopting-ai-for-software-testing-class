@@ -108,3 +108,70 @@ BussinessLoginProgram/$RECYCLE.BIN/
 
 # Mono Auto Generated Files
 mono_crash.*
+
+
+# Ignore build results and temporary files for BussinessLoginProgram.Test
+BussinessLoginProgram.Test/[Dd]ebug/
+BussinessLoginProgram.Test/[Dd]ebugPublic/
+BussinessLoginProgram.Test/[Rr]elease/
+BussinessLoginProgram.Test/[Rr]eleases/
+BussinessLoginProgram.Test/x64/
+BussinessLoginProgram.Test/x86/
+BussinessLoginProgram.Test/[Aa][Rr][Mm]/
+BussinessLoginProgram.Test/[Aa][Rr][Mm]64/
+BussinessLoginProgram.Test/bld/
+BussinessLoginProgram.Test/[Bb]in/
+BussinessLoginProgram.Test/[Oo]bj/
+BussinessLoginProgram.Test/TestResults/
+
+# Ignore user-specific files
+BussinessLoginProgram.Test/*.rsuser
+BussinessLoginProgram.Test/*.suo
+BussinessLoginProgram.Test/*.user
+BussinessLoginProgram.Test/*.userosscache
+BussinessLoginProgram.Test/*.sln.docstates
+
+# Ignore files built by Visual Studio
+BussinessLoginProgram.Test/*_i.c
+BussinessLoginProgram.Test/*_p.c
+BussinessLoginProgram.Test/*_i.h
+BussinessLoginProgram.Test/*.ilk
+BussinessLoginProgram.Test/*.meta
+BussinessLoginProgram.Test/*.obj
+BussinessLoginProgram.Test/*.pch
+BussinessLoginProgram.Test/*.pdb
+BussinessLoginProgram.Test/*.pgc
+BussinessLoginProgram.Test/*.pgd
+BussinessLoginProgram.Test/*.rsp
+BussinessLoginProgram.Test/*.sbr
+BussinessLoginProgram.Test/*.tlb
+BussinessLoginProgram.Test/*.tli
+BussinessLoginProgram.Test/*.tlh
+BussinessLoginProgram.Test/*.tmp
+BussinessLoginProgram.Test/*.tmp_proj
+BussinessLoginProgram.Test/*.log
+BussinessLoginProgram.Test/*.vspscc
+BussinessLoginProgram.Test/*.vssscc
+
+# Ignore Visual Studio profiler files
+BussinessLoginProgram.Test/*.psess
+BussinessLoginProgram.Test/*.vsp
+BussinessLoginProgram.Test/*.vspx
+BussinessLoginProgram.Test/*.sap
+
+# Ignore T4 files
+BussinessLoginProgram.Test/*.tt
+BussinessLoginProgram.Test/*.tt2
+
+# Ignore Roslyn files
+BussinessLoginProgram.Test/*.ide
+
+# Ignore Windows image file caches
+BussinessLoginProgram.Test/Thumbs.db
+BussinessLoginProgram.Test/ehthumbs.db
+
+# Ignore folder config file
+BussinessLoginProgram.Test/Desktop.ini
+
+# Ignore Recycle Bin used on file shares
+BussinessLoginProgram.Test/$RECYCLE.BIN/
