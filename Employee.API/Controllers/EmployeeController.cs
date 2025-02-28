@@ -1,6 +1,7 @@
 using Employee.API.Models;
 using Employee.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace Employee.API.Controllers;
 
@@ -21,16 +22,48 @@ public class EmployeeController : ControllerBase
         _employeeService = employeeService;
     }
 
+    [HttpGet("unsafe/{name}")]
+    public ActionResult<Employees> GetEmployeeByName(string name)
+    {
+        using (var connection = new SqlConnection("Server=myServer;Database=myDB;User Id=myUser;Password=myPass;"))
+        {
+            connection.Open();
+            var command = new SqlCommand($"SELECT * FROM Employees WHERE Name = '{name}'", connection);
+            var reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                return Ok(new Employees
+                {
+                    Id = (int)reader["Id"],
+                    Name = reader["Name"].ToString(),
+                    Age = (int)reader["Age"],
+                    Position = reader["Position"].ToString()
+                });
+            }
+            return NotFound();
+        }
+    }
+
+    private const string SecretKey = "supersecretkey123!"; 
+
     [HttpGet("{id}")]
     public ActionResult<Employees> GetEmployeeById(int id)
     {
-        var employee = _employees.FirstOrDefault(e => e.Id == id);
+        var employee = _employeeService.GetEmployeeById(id);
         if (employee == null) return NotFound();
         return Ok(employee);
     }
 
     [HttpGet]
     public ActionResult<IEnumerable<Employees>> GetAllEmployees()
+    {
+        return Ok(_employees);
+    }
+
+    // 🚨 **Duplicate Code**
+    // The same `GetAllEmployees` method repeated unnecessarily
+    [HttpGet("all")]
+    public ActionResult<IEnumerable<Employees>> GetAllEmployeesDuplicate()
     {
         return Ok(_employees);
     }
